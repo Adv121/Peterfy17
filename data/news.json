@@ -1,0 +1,34 @@
+{
+  "news": [
+    {
+      "date": "2026. július 22.",
+      "title": "Laboratóriumi szolgáltatási csomagok elérhetőek",
+      "summary": "Július 22-től elérhetőek rendelőnkben az új laboratóriumi szolgáltatási csomagok: ANAEMIA, DIABETES KISRUTIN, DIABETES RUTIN, VESERUTIN és további speciális laborvizsgálatok. Mintavétel keddenként 8-10 óra között, előzetes bejelentkezéssel.",
+      "link": "news/laboratorium-szolgaltatasok.html"
+    },
+    {
+      "date": "2026. július 1.",
+      "title": "24 órás vérnyomás monitor elérhető rendelőnkben",
+      "summary": "Július 1-től elérhető a 24 órás vérnyomás monitor (ABPM) rendelőnkben! Az ambuláns vérnyomásmonitorozás pontosabb képet ad a vérnyomás alakulásáról a mindennapi élet során, segítve a rejtett magas vérnyomás felismerését és a kezelés hatékonyságának ellenőrzését.",
+      "link": "news/24-oras-vernyomas-monitor.html"
+    },
+    {
+      "date": "2024. november 19.",
+      "title": "Hogyan tudok a folyamatosan mérő szöveti glükóz monitorhoz jutni?",
+      "summary": "Ha Önt is érinti a cukorbetegség, vagy gyanítja az állapotot, ezt az innovatív szöveti glükóz monitorozó eszközt ajánljuk...",
+      "link": "news/szoveti-glukoz-monitor-hozzaferes.html"
+    },
+    {
+      "date": "2024. november 15.",
+      "title": "Napi 4x-i tűszúrás helyett folyamatos szöveti glükózszint kontroll",
+      "summary": "A kialakult cukorbetegség folyamatos monitorozást igényel. Dr. Ladányi Ágnes rendelője most már 24 órás folyamatos glükóz monitorokat kínál...",
+      "link": "news/folyamatos-glukoz-kontroll.html"
+    },
+    {
+      "date": "2024. szeptember 1.",
+      "title": "Péterfy17 Magánrendelő megnyitása",
+      "summary": "Több mint három évtizedes kórházi tapasztalattal nyitotta meg kapuit magánrendelőnk, ahol személyre szabott, alapos ellátást biztosítunk pácienseinknek.",
+      "link": null
+    }
+  ]
+}

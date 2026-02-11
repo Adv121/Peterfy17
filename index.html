@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Péterfy17 Magánrendelő</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Peterfy17 - Magánrendelő Logo">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü megnyitása">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#fooldal" class="active">Főoldal</a></li>
+                    <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+                    <li><a href="#munkatarsak">Munkatársak</a></li>
+                    <li><a href="#idopontfoglalas">Időpontfoglalás</a></li>
+                    <li><a href="#rendelo">Rendelő</a></li>
+                    <li><a href="#kapcsolat">Kapcsolat</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="fooldal" class="hero">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: url('photos/hero/Consultation.jpg');">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h2>Üdvözöljük a Péterfy17 Magánrendelő honlapján!</h2>
+                            <p>Modern orvosi ellátás, személyre szabott figyelemmel.</p>
+                            <a href="#idopontfoglalas" class="btn">Időpontfoglalás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('photos/hero/Consultation1.jpg');">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h2>Az egészség megőrzése ma kezdődik.</h2>
+                            <p>Hiszünk a megelőzés erejében és a tudatos döntésekben. Rendelőnkben nem csak akkor várjuk, amikor már probléma van, hanem akkor is, amikor tenni szeretne az egészségéért.</p>
+                            <a href="#idopontfoglalas" class="btn">Jelentkezzen be most!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" style="background-image: url('photos/hero/Consultation2.jpg');">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h2>Modern orvoslás, emberi szemlélettel.</h2>
+                            <p>Tudjuk, hogy az orvoshoz fordulás sokszor bizonytalansággal jár. Ezért olyan rendelőt hoztunk létre, ahol a figyelem, a türelem és a szakértelem természetes része az ellátásnak.</p>
+                            <a href="#idopontfoglalas" class="btn">Időpontfoglalás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-prev" aria-label="Előző dia">❮</button>
+        <button class="carousel-next" aria-label="Következő dia">❯</button>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section id="szolgaltatasok" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Szolgáltatások</h2>
+            <div class="services-grid">
+                <a href="services/belgyogyaszati-vizsgalat.html" class="service-card service-link">
+                    <div class="service-icon">🩺</div>
+                    <h3>Belgyógyászati vizsgálat</h3>
+                    <p>Teljes körű belgyógyászati kivizsgálás, állapotfelmérés és kezelési terv készítése.</p>
+                </a>
+                <a href="services/hipertonologia.html" class="service-card service-link">
+                    <div class="service-icon">❤️</div>
+                    <h3>Hipertonológia</h3>
+                    <p>Problémás magas vérnyomás kivizsgálása, terápia beállítása és hosszú távú gondozása.</p>
+                </a>
+                <a href="services/diabetologia.html" class="service-card service-link">
+                    <div class="service-icon">🩸</div>
+                    <h3>Diabetológia</h3>
+                    <p>Cukorbetegség kezelése, terápia beállítása, szövődmények megelőzése és gondozása.</p>
+                </a>
+                <a href="services/nefrologia.html" class="service-card service-link">
+                    <div class="service-icon">🫘</div>
+                    <h3>Nefrológia</h3>
+                    <p>Krónikus vesebetegek szakorvosi gondozása, vesefunkció ellenőrzése és kezelése.</p>
+                </a>
+                <a href="services/nogyogyaszati-vizsgalat.html" class="service-card service-link">
+                    <div class="service-icon">🤰</div>
+                    <h3>Nőgyógyászati vizsgálat</h3>
+                    <p>Átfogó nőgyógyászati kivizsgálás, méhnyakrák szűrés és preventív ellátás.</p>
+                </a>
+                <a href="services/bordaganat-szures.html" class="service-card service-link">
+                    <div class="service-icon">🔍</div>
+                    <h3>Bőrdaganat szűrés</h3>
+                    <p>Átfogó bőrelváltozások vizsgálata dermatoszkóppal, melanóma korai felismerése.</p>
+                </a>
+                <a href="services/anyajegy-vizsgalat.html" class="service-card service-link">
+                    <div class="service-icon">🔬</div>
+                    <h3>Anyajegy vizsgálat</h3>
+                    <p>Anyajegyek részletes vizsgálata dermatoszkóppal, fotódokumentáció és kockázatértékelés.</p>
+                </a>
+                <div class="service-card">
+                    <div class="service-icon">💊</div>
+                    <h3>Gyógyszeres kezelés</h3>
+                    <p>Személyre szabott gyógyszeres terápia, recept felírás, gyógyszer-kontrolling.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Orvosi leletek értelmezése</h3>
+                    <p>Korábbi orvosi leletek megbeszélése, közérthetővé tétele, másodvélemény adása.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ujdonsagok" class="section">
+        <div class="container">
+            <h2 class="section-title">Újdonságok</h2>
+            <div class="news-carousel-container">
+                <button class="news-carousel-prev" aria-label="Előző újdonságok">❮</button>
+                <div class="news-carousel">
+                    <div class="news-grid">
+                        <!-- News items are loaded dynamically from data/news.json -->
+                    </div>
+                </div>
+                <button class="news-carousel-next" aria-label="Következő újdonságok">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="munkatarsak" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Munkatársaink</h2>
+            <p class="section-intro">Tapasztalt és elkötelezett csapatunk minden nap azon dolgozik, hogy a legjobb ellátást nyújtsuk pácienseinknek.</p>
+            <div class="colleagues-carousel-container">
+                <button class="colleagues-carousel-prev" aria-label="Előző munkatársak">❮</button>
+                <div class="colleagues-carousel">
+                    <div class="colleagues-grid">
+                        <a href="doctors/dr-ladanyi-agnes.html" class="colleague-card colleague-link">
+                            <div class="colleague-image">
+                                <img src="photos/Colleagues/Agi.jpg" alt="Dr. Ladányi Ágnes - Szakorvos">
+                            </div>
+                            <div class="colleague-info">
+                                <h3>Dr. Ladányi Ágnes</h3>
+                                <p class="position">Belgyógyász, diabetológus, nefrológus, hipertonológus</p>
+                                <p class="description">Több mint három évtizedes kórházi tapasztalattal rendelkezem. Szakterületem a belgyógyászat, diabetológia, nefrológia és hipertonológia. Magánrendelőmet 2024 szeptemberében nyitottam meg, hogy pácienseimnek személyre szabott, alapos ellátást tudjak biztosítani.</p>
+                            </div>
+                        </a>
+                        <a href="doctors/kormendi-csilla.html" class="colleague-card colleague-link">
+                            <div class="colleague-image">
+                                <img src="photos/Colleagues/Csilla.jpg" alt="Körmöndi Csilla - Főnővér">
+                            </div>
+                            <div class="colleague-info">
+                                <h3>Körmöndi Csilla</h3>
+                                <p class="position">Főnővér</p>
+                                <p class="description">Több mint két évtizedes ápolói tapasztalattal rendelkezik. Szakértelme és empatikus hozzáállása biztosítja pácienseink szakszerű ellátását és gondozását.</p>
+                            </div>
+                        </a>
+                        <a href="doctors/dr-nagy-peter.html" class="colleague-card colleague-link">
+                            <div class="colleague-image">
+                                <img src="photos/Colleagues/Peter.jpg" alt="Dr. Nagy Péter - Bőrgyógyász">
+                            </div>
+                            <div class="colleague-info">
+                                <h3>Dr. Nagy Péter</h3>
+                                <p class="position">Bőrgyógyász</p>
+                                <p class="description">Dr. Nagy Péter 20 éves tapasztalattal rendelkezik a bőr-, haj- és körömbetegségek diagnózisában és kezelésében. Speciális érdeklődése a dermatoonkológia és az esztétikai bőrgyógyászat.</p>
+                            </div>
+                        </a>
+                        <a href="doctors/dr-kovacs-janos.html" class="colleague-card colleague-link">
+                            <div class="colleague-image">
+                                <img src="photos/Colleagues/Janos.jpg" alt="Dr. Kovács János - Nőgyógyász">
+                            </div>
+                            <div class="colleague-info">
+                                <h3>Dr. Kovács János</h3>
+                                <p class="position">Szülész-nőgyógyász</p>
+                                <p class="description">Dr. Kovács János több mint 15 éves tapasztalattal rendelkezik a nőgyógyászati ellátás területén. Szakterülete az általános nőgyógyászati vizsgálatok, terhességgondozás és megelőző szűrővizsgálatok.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="colleagues-carousel-next" aria-label="Következő munkatársak">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Árak section removed; individual doctor pages contain pricing -->
+
+    <section id="idopontfoglalas" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Időpontfoglalás</h2>
+            <div class="appointment-info">
+                <div class="info-box">
+                    <h3>Rendelési idő</h3>
+                    <ul class="schedule">
+                        <li><strong>Hétfő:</strong> 14:00 - 18:00</li>
+                        <li><strong>Kedd:</strong> 14:00 - 18:00</li>
+                        <li><strong>Szerda:</strong> 9:00 - 13:00</li>
+                        <li><strong>Csütörtök:</strong> 14:00 - 18:00</li>
+                        <li><strong>Péntek:</strong> 9:00 - 13:00</li>
+                    </ul>
+                </div>
+                <div class="contact-box">
+                    <h3>Kérjen időpontot</h3>
+                    <p>Rendelőnkben az ellátás előre egyeztetett időpont alapján történik, így minden páciensre elegendő figyelmet tudunk fordítani.</p>
+                    <div class="contact-methods">
+                        <p><strong>Telefon:</strong> +36 70 550 3989</p>
+                        <p><strong>E-mail:</strong> peterfy17rendelo@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rendelo" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Rendelőnk</h2>
+            <p class="section-intro">Modern, jól felszerelt rendelőnkben nyugodt, kellemes környezetben fogadhatjuk pácienseinket.</p>
+            <div class="office-carousel-container">
+                <button class="office-carousel-prev" aria-label="Előző képek">❮</button>
+                <div class="office-carousel">
+                    <div class="office-gallery">
+                        <div class="gallery-item">
+                            <img src="photos/Office/Consultation.jpg" alt="Konzultációs helyiség">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office1.jpg" alt="Rendelő 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office2.jpg" alt="Rendelő 2">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office3.jpg" alt="Rendelő 3">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office4.jpg" alt="Rendelő 4">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office5.jpg" alt="Rendelő 5">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office6.jpg" alt="Rendelő 6">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="photos/Office/Office7.jpg" alt="Rendelő 7">
+                        </div>
+                    </div>
+                </div>
+                <button class="office-carousel-next" aria-label="Következő képek">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="kapcsolat" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title">Kapcsolat</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Elérhetőségek</h3>
+                    <div class="info-item">
+                        <strong>Cím:</strong>
+                        <p>1076 Budapest, Péterfy Sándor utca 17.<br>IV. emelet, 29. ajtó</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Telefon:</strong>
+                        <p>+36 70 550 3989</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>E-mail:</strong>
+                        <p>peterfy17rendelo@gmail.com</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://maps.google.com/maps?q=1076+Budapest,+Péterfy+Sándor+utca+17&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius:10px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Péterfy17 Magánrendelő</h3>
+                    <div style="margin-top: 15px;">
+                        <a href="https://www.facebook.com/profile.php?id=61566762230496" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; color: #2c9fa8; text-decoration: none; font-size: 16px; transition: color 0.3s;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display: block;">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span>Kövessen minket Facebookon</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Gyors linkek</h4>
+                    <ul>
+                        <li><a href="#munkatarsak">Munkatársak</a></li>
+                        <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+                        <li><a href="#idopontfoglalas">Időpontfoglalás</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Elérhetőség</h4>
+                    <p><a href="tel:+36705503989">+36 70 550 3989</a></p>
+                    <p><a href="mailto:peterfy17rendelo@gmail.com">peterfy17rendelo@gmail.com</a></p>
+                    <p>1076 Budapest, Péterfy Sándor utca 17.<br>IV. emelet, 29. ajtó</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Péterfy17 Magánrendelő. Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
