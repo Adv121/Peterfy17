@@ -45,6 +45,21 @@ const initHeroCarousel = () => {
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => goToSlide(index));
     });
+
+    // Touch swipe support
+    const heroEl = document.querySelector('.hero');
+    let touchStartX = 0;
+
+    heroEl.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    heroEl.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            diff > 0 ? nextSlide() : prevSlide();
+        }
+    }, { passive: true });
 };
 
 // Colleagues Carousel - Scroll 3 colleagues at a time (responsive)
