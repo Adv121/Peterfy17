@@ -1373,9 +1373,47 @@ footer {
 }
 
 @media (max-width: 600px) {
+    /* Overlay carousel arrows on mobile so cards use full width */
+    .colleagues-carousel-container,
+    .news-carousel-container,
+    .office-carousel-container {
+        position: relative;
+        gap: 0;
+    }
+
+    .colleagues-carousel-container button,
+    .news-carousel-container button,
+    .office-carousel-container button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        padding: 8px 10px;
+        font-size: 16px;
+        opacity: 0.85;
+    }
+
+    .colleagues-carousel-container .colleagues-carousel-prev,
+    .news-carousel-container .news-carousel-prev,
+    .office-carousel-container .office-carousel-prev {
+        left: 4px;
+    }
+
+    .colleagues-carousel-container .colleagues-carousel-next,
+    .news-carousel-container .news-carousel-next,
+    .office-carousel-container .office-carousel-next {
+        right: 4px;
+    }
+
+    .colleagues-carousel,
+    .news-carousel,
+    .office-carousel {
+        width: 100%;
+    }
+
     .colleague-card {
-        flex: 0 0 calc(100% - 36px);
-        margin: 0 18px;
+        flex: 0 0 100%;
+        margin: 0;
     }
 
     .colleagues-grid {
@@ -1387,8 +1425,8 @@ footer {
     }
 
     .news-carousel .news-card {
-        flex: 0 0 calc(100% - 36px);
-        margin: 0 18px;
+        flex: 0 0 100%;
+        margin: 0;
     }
 
     .news-carousel .news-grid {
@@ -1400,8 +1438,8 @@ footer {
     }
 
     .office-carousel .gallery-item {
-        flex: 0 0 calc(100% - 36px);
-        margin: 0 18px;
+        flex: 0 0 100%;
+        margin: 0;
     }
 
     .office-carousel .office-gallery {
