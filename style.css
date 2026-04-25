@@ -1103,19 +1103,6 @@ footer {
         height: 400px;
     }
 
-    .hero-content {
-        align-items: flex-start;
-        padding-top: 30px;
-    }
-
-    .hero-slide:first-child .hero-content {
-        padding-left: 5%;
-    }
-
-    .hero-slide:last-child .hero-content {
-        padding-right: 5%;
-    }
-
     .hero-text {
         max-width: 500px;
         padding: 0 20px;
@@ -1310,23 +1297,16 @@ footer {
         height: 380px;
     }
 
-    .hero-content {
-        align-items: flex-start;
-        padding-top: 25px;
-    }
-
-    .hero-slide:first-child .hero-content {
-        padding-left: 0;
-    }
-
+    .hero-slide:first-child .hero-content,
     .hero-slide:last-child .hero-content {
+        justify-content: center;
+        padding-left: 0;
         padding-right: 0;
-        justify-content: flex-start;
     }
 
     .hero-text {
-        max-width: 450px;
-        padding: 0 15px;
+        max-width: 100%;
+        padding: 0 20px;
     }
 
     .hero-text h1,
@@ -1485,11 +1465,6 @@ footer {
     /* Hero further adjustments - small phones */
     .hero {
         height: 360px;
-    }
-
-    .hero-content {
-        align-items: flex-start;
-        padding-top: 20px;
     }
 
     .hero-text {
