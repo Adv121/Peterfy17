@@ -866,6 +866,14 @@ nav ul li a.active {
     min-width: 90px;
 }
 
+.labor-short { display: none; }
+.labor-full { display: inline; }
+
+@media (max-width: 480px) {
+    .labor-full { display: none; }
+    .labor-short { display: inline; }
+}
+
 /* News */
 .news-grid {
     display: grid;
