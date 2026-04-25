@@ -869,9 +869,32 @@ nav ul li a.active {
 .labor-short { display: none; }
 .labor-full { display: inline; }
 
+.doctor-contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.doctor-contact-phone {
+    white-space: nowrap;
+    margin-left: 12px;
+}
+
 @media (max-width: 480px) {
     .labor-full { display: none; }
     .labor-short { display: inline; }
+
+    .doctor-contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .doctor-contact-phone {
+        margin-left: 0;
+        color: #2c9fa8;
+        font-weight: 600;
+    }
 }
 
 /* News */
