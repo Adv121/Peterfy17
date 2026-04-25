@@ -1100,7 +1100,7 @@ footer {
 
     /* Hero section adjustments - tablet */
     .hero {
-        height: 380px;
+        height: 400px;
     }
 
     .hero-text {
@@ -1108,6 +1108,7 @@ footer {
         padding: 0 20px;
     }
 
+    .hero-text h1,
     .hero-text h2 {
         font-size: 30px;
         margin-bottom: 15px;
@@ -1293,7 +1294,7 @@ footer {
 
     /* Hero adjustments - mobile */
     .hero {
-        height: 320px;
+        height: 380px;
     }
 
     .hero-text {
@@ -1301,6 +1302,7 @@ footer {
         padding: 0 15px;
     }
 
+    .hero-text h1,
     .hero-text h2 {
         font-size: 24px;
         margin-bottom: 12px;
@@ -1455,7 +1457,7 @@ footer {
 
     /* Hero further adjustments - small phones */
     .hero {
-        height: 280px;
+        height: 360px;
     }
 
     .hero-text {
@@ -1463,6 +1465,7 @@ footer {
         padding: 0 10px;
     }
 
+    .hero-text h1,
     .hero-text h2 {
         font-size: 20px;
         margin-bottom: 10px;
@@ -1498,10 +1501,6 @@ footer {
         margin: 0;
     }
 
-    /* Increase hero text padding to ensure readability */
-    .hero-text {
-        padding: 0 20px;
-    }
 
     /* Section titles */
     .section-title {
