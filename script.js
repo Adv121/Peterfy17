@@ -1,3 +1,56 @@
+// Load Google Fonts dynamically (only after cookie consent)
+const loadGoogleFonts = () => {
+    if (document.querySelector('link[data-fonts]')) return;
+    const preconnect1 = document.createElement('link');
+    preconnect1.rel = 'preconnect';
+    preconnect1.href = 'https://fonts.googleapis.com';
+    document.head.appendChild(preconnect1);
+    const preconnect2 = document.createElement('link');
+    preconnect2.rel = 'preconnect';
+    preconnect2.href = 'https://fonts.gstatic.com';
+    preconnect2.crossOrigin = 'anonymous';
+    document.head.appendChild(preconnect2);
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap';
+    fontLink.setAttribute('data-fonts', '');
+    document.head.appendChild(fontLink);
+};
+
+// If consent was already given in a previous visit, load fonts immediately
+if (localStorage.getItem('cookieConsent') === 'accepted') {
+    loadGoogleFonts();
+}
+
+// Cookie consent banner
+const initCookieConsent = () => {
+    if (localStorage.getItem('cookieConsent') !== null) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'cookie-banner';
+    banner.innerHTML = `
+        <div class="cookie-content">
+            <p>Weboldalunk a Google Fonts szolgáltatást használja a betűtípusok megjelenítéséhez, amely során az Ön IP-címe átkerülhet a Google szervereire. Részletek: <a href="http://www.peterfy17rendelo.hu/legal/sutikezelesi-tajekoztato.html">Sütikezelési tájékoztató</a>.</p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept" class="btn">Elfogadom</button>
+                <button id="cookie-decline" class="cookie-decline-btn">Elutasítom</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        loadGoogleFonts();
+        banner.remove();
+    });
+
+    document.getElementById('cookie-decline').addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'declined');
+        banner.remove();
+    });
+};
+
 // Hero Carousel - Manual slide navigation
 const initHeroCarousel = () => {
     const slides = document.querySelectorAll('.hero-slide');
@@ -445,6 +498,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize mobile menu
     initMobileMenu();
+
+    // Show cookie consent banner if not yet decided
+    initCookieConsent();
 
     const cards = document.querySelectorAll('.service-card, .price-item, .news-card, .colleague-card, .gallery-item');
     cards.forEach(card => {
