@@ -9,7 +9,6 @@ Website of **LADMED Kft.**, operating the Péterfy17 Magánrendelő in Budapest.
 ```
 Website/
 ├── index.html                              # Main homepage
-├── adatkezelesi-tajekoztato.html           # Data management notice (root level)
 ├── style.css                               # All styling and responsive design
 ├── script.js                               # Carousels, mobile menu, animations, news loader
 ├── CLAUDE.md                               # This file
@@ -38,26 +37,15 @@ Website/
 │   ├── dr-szekely-katalin.html
 │   ├── dr-nagy-maria-magdolna.html
 │   └── wagensommer-timea.html
-├── services/
-│   ├── belgyogyaszati-vizsgalat.html
-│   ├── hipertonologia.html
-│   ├── diabetologia.html
-│   ├── nefrologia.html
-│   ├── nogyogyaszati-vizsgalat.html
-│   ├── bordaganat-szures.html
-│   └── anyajegy-vizsgalat.html
 ├── news/
 │   ├── laboratorium-szolgaltatasok.html
 │   ├── 24-oras-vernyomas-monitor.html
 │   ├── folyamatos-glukoz-kontroll.html
 │   └── szoveti-glukoz-monitor-hozzaferes.html
-├── legal/
-│   ├── adatvedelmi-nyilatkozat.html
-│   └── sutikezelesi-tajekoztato.html
-└── specialties/                            # Orphaned — not linked from index.html
-    ├── diabetologia.html
-    ├── hipertonologia.html
-    └── nefrologia.html
+└── legal/
+    ├── adatvedelmi-nyilatkozat.html
+    ├── adatkezelesi-tajekoztato.html
+    └── sutikezelesi-tajekoztato.html
 ```
 
 > **Important for deployment**: All photo paths must be lowercase. The `photos/colleagues/` and `photos/office/` folders are lowercase on disk; HTML must match exactly or images will break on Linux.
@@ -131,8 +119,8 @@ Use `doctors/dr-ladanyi-agnes.html` as the canonical template. Every doctor page
 <title>Dr. Név - Szakterület</title>
 <meta name="description" content="Dr. Név szakterület. Rövid leírás.">
 <!-- OG and Twitter meta tags with same title/description -->
-<meta property="og:image" content="https://peterfy17.hu/photos/hero/consultation.jpg">
-<meta property="og:url" content="https://peterfy17.hu/doctors/dr-nev.html">
+<meta property="og:image" content="http://www.peterfy17rendelo.hu/photos/hero/consultation.jpg">
+<meta property="og:url" content="http://www.peterfy17rendelo.hu/doctors/dr-nev.html">
 <!-- JSON-LD Physician structured data (see below) -->
 ```
 
@@ -383,27 +371,6 @@ Omit `#arak` from nav only if the doctor has no pricing section (e.g. nursing st
 
 ---
 
-## Services (`services/`)
-
-Each service page has:
-- Header + footer matching the main site (paths prefixed with `../`)
-- Hero section (`.hero.doctor-hero`) with service title
-- `#attekintes` — Overview of the service
-- `#tartalom` — What the examination includes
-- `#arak` — Pricing
-- `#idopontfoglalas` — Appointment section with doctor carousel (`.service-appointment-carousel-container`)
-
-### Current Service Pages
-| Service | File |
-|---|---|
-| Belgyógyászati vizsgálat | `services/belgyogyaszati-vizsgalat.html` |
-| Hipertonológia | `services/hipertonologia.html` |
-| Diabetológia | `services/diabetologia.html` |
-| Nefrológia | `services/nefrologia.html` |
-| Nőgyógyászati vizsgálat | `services/nogyogyaszati-vizsgalat.html` |
-| Bőrdaganat szűrés | `services/bordaganat-szures.html` |
-| Anyajegy vizsgálat | `services/anyajegy-vizsgalat.html` |
-
 ---
 
 ## News (`data/news.json` + `news/`)
@@ -420,10 +387,10 @@ Each news item has: `date`, `title`, `summary`, `link` (nullable — items witho
 - **Email**: peterfy17rendelo@gmail.com
 - **Address**: 1076 Budapest, Péterfy Sándor utca 17., IV. emelet, 29. ajtó
 - **Facebook**: https://www.facebook.com/profile.php?id=61566762230496
-- **Domain**: https://peterfy17.hu
+- **Domain**: http://www.peterfy17rendelo.hu
 
 Legal pages:
-- `adatkezelesi-tajekoztato.html` — root level
+- `legal/adatkezelesi-tajekoztato.html`
 - `legal/adatvedelmi-nyilatkozat.html`
 - `legal/sutikezelesi-tajekoztato.html`
 
@@ -440,9 +407,8 @@ Legal pages:
 | `initMobileMenu()` | Hamburger open/close and nav link auto-close on mobile |
 | `loadNews()` | Fetches `data/news.json`; falls back to embedded `newsData` |
 | `shuffleColleagues()` | Fisher-Yates shuffle of colleague cards, runs before carousel init |
-| `initServiceAppointmentCarousel()` | Slide carousel on service detail pages |
 
-All carousels reset position on `window.resize`. The `createMobileMenu()` function (~line 410) is dead code — never called; can be deleted.
+All carousels reset position on `window.resize`.
 
 ---
 
@@ -464,10 +430,10 @@ All carousels reset position on `window.resize`. The `createMobileMenu()` functi
 3. Add the photo to `photos/colleagues/` as a JPG with a lowercase `firstname_lastname.jpg` filename.
 4. Add the doctor to the `employee` array in the `index.html` JSON-LD block.
 
-### Add a new service
-1. Create `services/service-name.html` — copy an existing service page.
-2. Add a `<a href="services/service-name.html" class="service-card service-link">` card to `index.html` `#szolgaltatasok`.
-3. Update the `availableService` array in the `index.html` JSON-LD block.
+### Add a new service card
+1. Add a `<div class="service-card">` block to `index.html` `#szolgaltatasok`.
+2. Update the `availableService` array in the `index.html` JSON-LD block.
+3. Service cards on the homepage link to the corresponding doctor page (no `services/` directory).
 
 ### Add a news item
 1. Add an entry to `data/news.json` (newest first).
@@ -486,6 +452,4 @@ All carousels reset position on `window.resize`. The `createMobileMenu()` functi
 
 ## Known Issues
 
-1. **`services/nogyogyaszati-vizsgalat.html`** — Still lists Dr. Székely Katalin in the appointment carousel, but she is an endocrinologist, not a gynaecologist. Needs the correct doctor assigned or the page removed.
-2. **Orphaned `specialties/` pages** — `specialties/diabetologia.html`, `specialties/hipertonologia.html`, `specialties/nefrologia.html` exist but nothing links to them.
-3. **Dead code in `script.js`** — `createMobileMenu()` (~line 410) is never called; can be deleted.
+None at this time.

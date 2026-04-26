@@ -419,6 +419,11 @@ const newsData = {
             "link": "news/folyamatos-glukoz-kontroll.html"
         },
         {
+            "title": "Hogyan juthat szöveti glükóz monitorhoz?",
+            "summary": "Tájékoztató a CareSens Air szöveti glükóz monitor – egy magyar gyártású innovatív eszköz – beszerzéséről, beállításáról és a rendelői segítségről. Az eszköz Dr. Ladányi Ágnes rendelőjén keresztül vagy közvetlenül a gyártótól szerezhető be.",
+            "link": "news/szoveti-glukoz-monitor-hozzaferes.html"
+        },
+        {
             "title": "Péterfy17 Magánrendelő megnyitása",
             "summary": "2024 szeptemberében megnyitotta kapuit a Péterfy17 Magánrendelő Budapest szívében. Büszkék vagyunk, hogy pácienseink számára elérhetővé vált egy új, személyre szabott magánellátási lehetőség.",
             "link": null
