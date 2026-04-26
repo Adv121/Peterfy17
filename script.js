@@ -108,6 +108,14 @@ const initColleaguesCarousel = () => {
     if (prevBtn) prevBtn.addEventListener('click', prevColleagues);
     if (nextBtn) nextBtn.addEventListener('click', nextColleagues);
 
+    // Touch swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? nextColleagues() : prevColleagues(); }
+    }, { passive: true });
+
     // Reset position on window resize
     window.addEventListener('resize', () => {
         const itemsPerView = getItemsPerView();
@@ -165,6 +173,14 @@ const initNewsCarousel = () => {
     if (prevBtn) prevBtn.addEventListener('click', prevNews);
     if (nextBtn) nextBtn.addEventListener('click', nextNews);
 
+    // Touch swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? nextNews() : prevNews(); }
+    }, { passive: true });
+
     // Reset position on window resize
     window.addEventListener('resize', () => {
         const itemsPerView = getItemsPerView();
@@ -221,6 +237,14 @@ const initOfficeCarousel = () => {
 
     if (prevBtn) prevBtn.addEventListener('click', prevOffice);
     if (nextBtn) nextBtn.addEventListener('click', nextOffice);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? nextOffice() : prevOffice(); }
+    }, { passive: true });
 
     // Reset position on window resize
     window.addEventListener('resize', () => {
