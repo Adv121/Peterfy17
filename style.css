@@ -1420,8 +1420,8 @@ footer {
     .colleagues-carousel-container button,
     .office-carousel-container button {
         position: absolute;
-        top: 100px;
-        transform: none;
+        top: 40%;
+        transform: translateY(-50%);
         z-index: 10;
         padding: 8px 10px;
         font-size: 16px;
@@ -1465,7 +1465,8 @@ footer {
     }
 
     .colleague-image {
-        height: 220px;
+        height: auto;
+        aspect-ratio: 4 / 5;
     }
 
     .colleagues-grid {
@@ -1508,10 +1509,6 @@ footer {
 
     .office-carousel {
         padding: 10px 15px 35px 15px;
-    }
-
-    .colleague-image {
-        height: 250px;
     }
 
     /* Doctor hero mobile adjustments */
