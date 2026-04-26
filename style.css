@@ -1458,7 +1458,10 @@ footer {
 
     .colleague-card {
         flex: 0 0 100%;
+        flex-shrink: 0;
+        width: 100%;
         margin: 0;
+        box-sizing: border-box;
     }
 
     .colleague-image {
@@ -1467,28 +1470,36 @@ footer {
 
     .colleagues-grid {
         gap: 0;
+        width: 100%;
     }
 
     .colleagues-carousel {
-        padding: 10px 15px 35px 15px;
+        padding: 10px 0 35px 0;
     }
 
     .news-carousel .news-card {
         flex: 0 0 100%;
+        flex-shrink: 0;
+        width: 100%;
         margin: 0;
+        box-sizing: border-box;
     }
 
     .news-carousel .news-grid {
         gap: 0;
+        width: 100%;
     }
 
     .news-carousel {
-        padding: 10px 15px 35px 15px;
+        padding: 10px 0 35px 0;
     }
 
     .office-carousel .gallery-item {
         flex: 0 0 100%;
+        flex-shrink: 0;
+        width: 100%;
         margin: 0;
+        box-sizing: border-box;
     }
 
     .office-carousel .office-gallery {
