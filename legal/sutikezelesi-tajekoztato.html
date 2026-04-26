@@ -43,23 +43,78 @@
             <div class="content-wrapper">
                 <div class="profile-content">
                     <div class="bio">
-                        <h2>Mi az a süti?</h2>
-                        <p>A sütik (cookie-k) kis szöveg fájlok, amelyeket a böngésző tárol az eszközén. A sütiken keresztül a honlap alapműködése és bizonyos külső szolgáltatások valósítják meg funkcióikat.</p>
+                        <h2>1. Mik a sütik és mit tárolunk?</h2>
+                        <p>A sütik (cookie-k) és a böngésző helyi tárolója (localStorage) kis adatfájlok, amelyeket a weboldal tárol az Ön eszközén. Weboldalunkon <strong>nincs nyomkövetési vagy profilalkotási célú adatkezelés</strong>. Kizárólag az alábbi, jól meghatározott célokra kerül sor tárolásra.</p>
 
-                        <h2>Milyen sütiket használunk?</h2>
+                        <h2>2. A weboldalon tárolt adatok</h2>
+
+                        <h3>Szükséges tárolás – hozzájárulás nélkül is aktív</h3>
+                        <p>Az alábbi elem a weboldal alapfunkcióihoz szükséges, és nem továbbít adatot harmadik félnek:</p>
+                        <div class="price-list">
+                            <div class="price-group">
+                                <div class="price-row">
+                                    <span class="price-label"><code>cookieConsent</code><span class="price-sub">Böngésző localStorage</span></span>
+                                    <span class="price-amount" style="font-size:0.85em;">Az Ön döntése: „accepted" vagy „declined"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size:0.875em; color:#666;">Megőrzési idő: a böngésző localStorage-ának törléséig. Adattovábbítás: nincs.</p>
+
+                        <h3>Harmadik fél általi adatkezelés – csak hozzájárulással</h3>
+                        <p>Az alábbi külső szolgáltatások <strong>kizárólag az Ön hozzájárulása után</strong> töltődnek be. Hozzájárulás nélkül a Google szervereivel nem jön létre kapcsolat, és az Ön IP-címe nem kerül továbbításra.</p>
+
+                        <div class="price-list">
+                            <div class="price-group">
+                                <h3>Google Fonts</h3>
+                                <p style="font-size:0.875em; color:#666; font-style:italic; margin:-4px 0 16px;">Betűtípusok megjelenítéséhez szükséges. Hozzájárulás nélkül a weboldal rendszerbetűtípussal jelenik meg.</p>
+                                <div class="price-row">
+                                    <span class="price-label">Adatkezelő<span class="price-sub">Google Ireland Limited</span></span>
+                                    <span class="price-amount" style="font-size:0.85em;">fonts.googleapis.com</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Átadott adatok</span>
+                                    <span class="price-amount" style="font-size:0.85em;">IP-cím, böngésző adatok</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Adatkezelés helye</span>
+                                    <span class="price-amount" style="font-size:0.85em;">EU/EGT és USA (SCCs)</span>
+                                </div>
+                            </div>
+                            <div class="price-group">
+                                <h3>Google Maps</h3>
+                                <p style="font-size:0.875em; color:#666; font-style:italic; margin:-4px 0 16px;">Rendelőnk helyének interaktív megjelenítéséhez. Hozzájárulás nélkül statikus helyőrző látható.</p>
+                                <div class="price-row">
+                                    <span class="price-label">Adatkezelő<span class="price-sub">Google Ireland Limited</span></span>
+                                    <span class="price-amount" style="font-size:0.85em;">maps.google.com</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Átadott adatok</span>
+                                    <span class="price-amount" style="font-size:0.85em;">IP-cím, böngésző adatok, interakciók</span>
+                                </div>
+                                <div class="price-row">
+                                    <span class="price-label">Adatkezelés helye</span>
+                                    <span class="price-amount" style="font-size:0.85em;">EU/EGT és USA (SCCs)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>A Google adatvédelmi irányelveiről bővebb tájékoztatás: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></p>
+
+                        <h2>3. Hozzájárulás és visszavonása</h2>
+                        <p>Hozzájárulását az első látogatáskor megjelenő értesítőn adhatja meg. A GDPR 7. cikk (3) bekezdése alapján hozzájárulását bármikor, ugyanolyan egyszerűen visszavonhatja, ahogy megadta. A visszavonás az alábbi gombbal lehetséges:</p>
+                        <button id="withdraw-consent-page-btn" class="btn" style="margin: 8px 0 16px;">Hozzájárulás visszavonása</button>
+                        <p style="font-size:0.875em; color:#666;">A visszavonás után az oldal újratöltődik, a hozzájárulást rögzítő adat törlésre kerül, és a Google Fonts / Google Maps nem töltődik be a továbbiakban. A visszavonás nem érinti a korábbi adatkezelés jogszerűségét.</p>
+
+                        <h2>4. Sütik kezelése a böngészőben</h2>
+                        <p>A böngésző beállításain keresztül is törölheti a tárolt adatokat, vagy letilthatja a helyi tárolás használatát. Ez befolyásolhatja a weboldal egyes funkcióit:</p>
                         <ul>
-                            <li><strong>Alapműködéshez szükséges sütik:</strong> a weboldal stabil működéséhez szükségesek.</li>
-                            <li><strong>Harmadik fél szolgáltatásai:</strong> a Google Maps és a Google Fonts a tartalmak megjelenítését segítik, és a Google saját sütijeit helyezhetik el.</li>
+                            <li><strong>Chrome:</strong> Beállítások → Adatvédelem és biztonság → Cookie-k és egyéb webhelyadatok</li>
+                            <li><strong>Firefox:</strong> Beállítások → Adatvédelem és biztonság → Cookie-k és webhelyadatok</li>
+                            <li><strong>Safari:</strong> Beállítások → Adatvédelem → Webhelyadatok kezelése</li>
+                            <li><strong>Edge:</strong> Beállítások → Cookie-k és webhelyengedélyek</li>
                         </ul>
 
-                        <h2>Harmadik fél szolgáltatásai</h2>
-                        <p>Az oldalon beágyazott Google Maps térképek és a Google Fonts betűtípusok használata során a Google technikai adatokat kezelhet (pl. IP-cím, böngésző információ). A pontos adatkezelésről a Google saját tájékoztatói adnak részletes információt.</p>
-
-                        <h2>Sütik kezelése</h2>
-                        <p>A sütiket a böngésző beállításain keresztül tudja törölni vagy tiltani. A sütik tiltása bizonyos funkciók korlátozását okozhatja (pl. térkép megjelenítése).</p>
-
-                        <h2>Kapcsolat</h2>
-                        <p>Ha kérdés merül fel a sütikezeléssel kapcsolatban, kérjük, lépjen velünk kapcsolatba:</p>
+                        <h2>5. Kapcsolat</h2>
+                        <p>Sütikezeléssel kapcsolatos kérdés esetén kérem, keressen minket:</p>
                         <p><strong>Telefon:</strong> +36 70 550 3989</p>
                         <p><strong>E-mail:</strong> peterfy17rendelo@gmail.com</p>
                     </div>

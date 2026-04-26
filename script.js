@@ -17,9 +17,28 @@ const loadGoogleFonts = () => {
     document.head.appendChild(fontLink);
 };
 
-// If consent was already given in a previous visit, load fonts immediately
+// Load Google Maps iframe (only after cookie consent)
+const loadGoogleMaps = () => {
+    const iframe = document.getElementById('google-map');
+    const placeholder = document.getElementById('map-placeholder');
+    if (iframe && iframe.getAttribute('data-src')) {
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.style.removeProperty('display');
+    }
+    if (placeholder) placeholder.style.display = 'none';
+};
+
+// Accept consent and load all third-party services
+const acceptConsent = () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    loadGoogleFonts();
+    loadGoogleMaps();
+};
+
+// If consent was already given in a previous visit, load everything immediately
 if (localStorage.getItem('cookieConsent') === 'accepted') {
     loadGoogleFonts();
+    loadGoogleMaps();
 }
 
 // Cookie consent banner
@@ -30,7 +49,7 @@ const initCookieConsent = () => {
     banner.id = 'cookie-banner';
     banner.innerHTML = `
         <div class="cookie-content">
-            <p>Weboldalunk a Google Fonts szolgáltatást használja a betűtípusok megjelenítéséhez, amely során az Ön IP-címe átkerülhet a Google szervereire. Részletek: <a href="http://www.peterfy17rendelo.hu/legal/sutikezelesi-tajekoztato.html">Sütikezelési tájékoztató</a>.</p>
+            <p>Weboldalunk <strong>Google Fonts</strong> és <strong>Google Maps</strong> szolgáltatásokat használ, amelyek az Ön IP-címét és technikai adatait a Google szervereire továbbíthatják. Hozzájárulás nélkül ezek nem töltődnek be. <a href="http://www.peterfy17rendelo.hu/legal/sutikezelesi-tajekoztato.html">Sütikezelési tájékoztató</a>.</p>
             <div class="cookie-buttons">
                 <button id="cookie-accept" class="btn">Elfogadom</button>
                 <button id="cookie-decline" class="cookie-decline-btn">Elutasítom</button>
@@ -40,14 +59,30 @@ const initCookieConsent = () => {
     document.body.appendChild(banner);
 
     document.getElementById('cookie-accept').addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'accepted');
-        loadGoogleFonts();
+        acceptConsent();
         banner.remove();
     });
 
     document.getElementById('cookie-decline').addEventListener('click', () => {
         localStorage.setItem('cookieConsent', 'declined');
         banner.remove();
+    });
+};
+
+// Inject a "Sütik visszavonása" link into the footer next to the cookie policy link
+// This gives users an easy way to withdraw consent, as required by GDPR Art. 7(3)
+const initCookieWithdrawal = () => {
+    const sutiLink = document.querySelector('a[href*="sutikezelesi-tajekoztato"]');
+    if (!sutiLink) return;
+    const li = sutiLink.closest('li');
+    if (!li) return;
+    const withdrawLi = document.createElement('li');
+    withdrawLi.innerHTML = '<a href="#" class="cookie-withdraw-link">Sütik visszavonása</a>';
+    li.after(withdrawLi);
+    withdrawLi.querySelector('.cookie-withdraw-link').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('cookieConsent');
+        location.reload();
     });
 };
 
@@ -506,6 +541,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Show cookie consent banner if not yet decided
     initCookieConsent();
+
+    // Add withdrawal link to footer on every page
+    initCookieWithdrawal();
+
+    // Map placeholder: clicking the button grants consent and loads the map
+    document.getElementById('map-load-btn')?.addEventListener('click', () => {
+        acceptConsent();
+    });
+
+    // Cookie policy page withdrawal button
+    document.getElementById('withdraw-consent-page-btn')?.addEventListener('click', () => {
+        localStorage.removeItem('cookieConsent');
+        location.reload();
+    });
 
     const cards = document.querySelectorAll('.service-card, .price-item, .news-card, .colleague-card, .gallery-item');
     cards.forEach(card => {

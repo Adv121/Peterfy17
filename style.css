@@ -1676,9 +1676,9 @@ footer {
 }
 
 .cookie-decline-btn {
-    background: none;
-    border: 2px solid #d1d9de;
-    color: #d1d9de;
+    background: #6c757d;
+    border: 2px solid #6c757d;
+    color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 14px;
@@ -1686,11 +1686,39 @@ footer {
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: inherit;
+    white-space: nowrap;
 }
 
 .cookie-decline-btn:hover {
-    border-color: white;
-    color: white;
+    background: #5a6268;
+    border-color: #5a6268;
+}
+
+.map-placeholder {
+    background: #f0f4f5;
+    border: 2px dashed #2c9fa8;
+    border-radius: 10px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+.map-placeholder p {
+    color: #555;
+    margin: 0;
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.map-placeholder a {
+    color: #2c9fa8;
 }
 
 @media (max-width: 600px) {

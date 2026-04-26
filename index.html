@@ -412,11 +412,19 @@
                     </div>
                 </div>
                 <div class="map-container">
+                    <div id="map-placeholder" class="map-placeholder">
+                        <p><strong>Google Térkép</strong></p>
+                        <p>A térkép betöltéséhez hozzájárulás szükséges, mivel az IP-cím és technikai adatok a Google szervereire kerülnek.</p>
+                        <button id="map-load-btn" class="btn">Térkép betöltése (hozzájárulok)</button>
+                        <p><a href="legal/sutikezelesi-tajekoztato.html">Sütikezelési tájékoztató</a></p>
+                    </div>
                     <iframe
-                        src="https://maps.google.com/maps?q=1076+Budapest,+Péterfy+Sándor+utca+17&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        id="google-map"
+                        src="about:blank"
+                        data-src="https://maps.google.com/maps?q=1076+Budapest,+Péterfy+Sándor+utca+17&t=&z=16&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="400"
-                        style="border:0; border-radius:10px;"
+                        style="border:0; border-radius:10px; display:none;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
