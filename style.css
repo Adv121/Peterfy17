@@ -869,6 +869,11 @@ nav ul li a.active {
 .labor-short { display: none; }
 .labor-full { display: inline; }
 
+a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
+}
+
 .doctor-contact-row {
     display: flex;
     justify-content: space-between;
