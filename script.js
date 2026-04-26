@@ -455,24 +455,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-// Mobile menu toggle (if needed in the future)
-const createMobileMenu = () => {
-    const nav = document.querySelector('nav');
-    const menuButton = document.createElement('button');
-    menuButton.className = 'mobile-menu-toggle';
-    menuButton.innerHTML = '☰';
-    menuButton.style.display = 'none';
-
-    if (window.innerWidth <= 768) {
-        menuButton.style.display = 'block';
-        document.querySelector('header .container').insertBefore(menuButton, nav);
-
-        menuButton.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    }
-};
-
 // Handle responsive behavior
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
@@ -488,74 +470,3 @@ window.addEventListener('resize', () => {
     }
 });
 
-// ============================================
-// SERVICE APPOINTMENT CAROUSEL
-// ============================================
-
-const initServiceAppointmentCarousel = () => {
-    const container = document.querySelector('.service-appointment-carousel-container');
-    if (!container) return;
-
-    const track = container.querySelector('.service-appointment-track');
-    const prevBtn = container.querySelector('.prev-appointment');
-    const nextBtn = container.querySelector('.next-appointment');
-    const slides = container.querySelectorAll('.appointment-slide');
-
-    if (!track || slides.length === 0) return;
-
-    let currentIndex = 0;
-
-    const updateCarousel = () => {
-        const translateX = -currentIndex * 100;
-        track.style.transform = `translateX(${translateX}%)`;
-
-        // Update button states
-        if (prevBtn) {
-            prevBtn.disabled = currentIndex === 0;
-        }
-        if (nextBtn) {
-            nextBtn.disabled = currentIndex === slides.length - 1;
-        }
-    };
-
-    // Previous button
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-    }
-
-    // Next button
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < slides.length - 1) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-    }
-
-    // Keyboard navigation
-    container.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft' && currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        } else if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) {
-            currentIndex++;
-            updateCarousel();
-        }
-    });
-
-    // Initial state
-    updateCarousel();
-};
-
-// Initialize service appointment carousel on page load
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initServiceAppointmentCarousel);
-} else {
-    initServiceAppointmentCarousel();
-}
