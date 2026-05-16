@@ -106,7 +106,7 @@ Website/
 - **Dr. Ladányi Ágnes**: Kedd 15:00–19:00, Szerda 15:00–19:00
 - **Dr. Széver Krisztina**: Csütörtök 14:00–19:00
 - **Dr. Székely Katalin**: Egyéni megbeszélés alapján
-- **Dr. Nagy Mária Magdolna**: Egyéni megbeszélés alapján
+- **Dr. Nagy Mária Magdolna**: Szerda 17:00–20:00
 
 ---
 
