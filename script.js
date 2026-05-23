@@ -1,4 +1,4 @@
-// Load Google Fonts dynamically (only after cookie consent)
+// Load Google Fonts dynamically (only after consent)
 const loadGoogleFonts = () => {
     if (document.querySelector('link[data-fonts]')) return;
     const preconnect1 = document.createElement('link');
@@ -17,7 +17,7 @@ const loadGoogleFonts = () => {
     document.head.appendChild(fontLink);
 };
 
-// Load Google Maps iframe (only after cookie consent)
+// Load Google Maps iframe (only after consent)
 const loadGoogleMaps = () => {
     const iframe = document.getElementById('google-map');
     const placeholder = document.getElementById('map-placeholder');
@@ -28,35 +28,105 @@ const loadGoogleMaps = () => {
     if (placeholder) placeholder.style.display = 'none';
 };
 
-// Accept consent and load all third-party services
-const acceptConsent = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
-    loadGoogleFonts();
-    loadGoogleMaps();
+// --- Consent storage helpers (GDPR Art. 7) ---
+// Preferences stored as JSON: { fonts: bool, maps: bool }
+// Legacy string values 'accepted'/'declined' are handled for backward compat.
+const getConsentPrefs = () => {
+    const raw = localStorage.getItem('cookieConsent');
+    if (!raw) return null;
+    if (raw === 'accepted') return { fonts: true, maps: true };
+    if (raw === 'declined') return { fonts: false, maps: false };
+    try { return JSON.parse(raw); } catch { return null; }
 };
 
-// If consent was already given in a previous visit, load everything immediately
-if (localStorage.getItem('cookieConsent') === 'accepted') {
-    loadGoogleFonts();
-    loadGoogleMaps();
-}
+const saveConsentPrefs = (prefs) => {
+    localStorage.setItem('cookieConsent', JSON.stringify(prefs));
+};
+
+const applyConsent = (prefs) => {
+    if (!prefs) return;
+    if (prefs.fonts) loadGoogleFonts();
+    if (prefs.maps) loadGoogleMaps();
+};
+
+// Accept all — also called from the map placeholder button
+const acceptConsent = () => {
+    const prefs = { fonts: true, maps: true };
+    saveConsentPrefs(prefs);
+    applyConsent(prefs);
+};
+
+// Apply previously saved consent on page load
+applyConsent(getConsentPrefs());
 
 // Cookie consent banner
+// Compliant with GDPR Art. 4(11), Art. 7, EDPB Cookie Banner Taskforce (2023),
+// and NAIH equal-prominence requirement (no dark patterns).
 const initCookieConsent = () => {
-    if (localStorage.getItem('cookieConsent') !== null) return;
+    if (getConsentPrefs() !== null) return;
 
     const banner = document.createElement('div');
     banner.id = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-modal', 'true');
+    banner.setAttribute('aria-label', 'Süti-beállítások');
     banner.innerHTML = `
         <div class="cookie-content">
-            <p>Weboldalunk <strong>Google Fonts</strong> és <strong>Google Maps</strong> szolgáltatásokat használ, amelyek az Ön IP-címét és technikai adatait a Google szervereire továbbíthatják. Hozzájárulás nélkül ezek nem töltődnek be. <a href="http://www.peterfy17rendelo.hu/legal/sutikezelesi-tajekoztato.html">Sütikezelési tájékoztató</a>.</p>
+            <div class="cookie-text-area">
+                <p class="cookie-title">Süti-beállítások</p>
+                <p class="cookie-desc">Weboldalunk <strong>Google Fonts</strong> és <strong>Google Maps</strong> külső szolgáltatásokat alkalmaz, amelyek az Ön IP-címét a Google szervereire továbbíthatják. Hozzájárulás nélkül ezek nem töltődnek be — a betűtípusok és a térkép helyett semleges helyőrzők jelennek meg. <a href="http://www.peterfy17rendelo.hu/legal/sutikezelesi-tajekoztato.html">Sütikezelési tájékoztató</a></p>
+            </div>
+
+            <div id="cookie-settings-panel" class="cookie-settings-panel" hidden>
+                <div class="cookie-service-row">
+                    <div class="cookie-service-info">
+                        <span class="cookie-service-name">Szükséges működés</span>
+                        <span class="cookie-service-desc">Hozzájárulási döntés tárolása (localStorage). Harmadik félnek nem továbbít adatot.</span>
+                    </div>
+                    <span class="cookie-always-on">Mindig aktív</span>
+                </div>
+                <div class="cookie-service-row">
+                    <div class="cookie-service-info">
+                        <span class="cookie-service-name">Google Fonts</span>
+                        <span class="cookie-service-desc">Betűtípus-betöltés. IP-cím továbbítás a Google Ireland Ltd. szerverére.</span>
+                    </div>
+                    <label class="cookie-toggle-switch" aria-label="Google Fonts engedélyezése">
+                        <input type="checkbox" id="consent-fonts" checked>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-service-row">
+                    <div class="cookie-service-info">
+                        <span class="cookie-service-name">Google Maps</span>
+                        <span class="cookie-service-desc">Interaktív térkép. IP-cím és interakciók továbbítása a Google Ireland Ltd. szerverére.</span>
+                    </div>
+                    <label class="cookie-toggle-switch" aria-label="Google Maps engedélyezése">
+                        <input type="checkbox" id="consent-maps" checked>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-save-row">
+                    <button id="cookie-save-prefs" class="cookie-btn cookie-btn-save">Beállítások mentése</button>
+                </div>
+            </div>
+
             <div class="cookie-buttons">
-                <button id="cookie-accept" class="btn">Elfogadom</button>
-                <button id="cookie-decline" class="cookie-decline-btn">Elutasítom</button>
+                <button id="cookie-decline" class="cookie-btn cookie-btn-outline">Elutasítom</button>
+                <button id="cookie-settings-toggle" class="cookie-btn cookie-btn-secondary">Beállítások</button>
+                <button id="cookie-accept" class="cookie-btn cookie-btn-primary">Mindent elfogadok</button>
             </div>
         </div>
     `;
     document.body.appendChild(banner);
+
+    const panel = document.getElementById('cookie-settings-panel');
+    const toggleBtn = document.getElementById('cookie-settings-toggle');
+
+    toggleBtn.addEventListener('click', () => {
+        const opening = panel.hidden;
+        panel.hidden = !opening;
+        toggleBtn.textContent = opening ? 'Bezárás' : 'Beállítások';
+    });
 
     document.getElementById('cookie-accept').addEventListener('click', () => {
         acceptConsent();
@@ -64,13 +134,22 @@ const initCookieConsent = () => {
     });
 
     document.getElementById('cookie-decline').addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'declined');
+        saveConsentPrefs({ fonts: false, maps: false });
+        banner.remove();
+    });
+
+    document.getElementById('cookie-save-prefs').addEventListener('click', () => {
+        const prefs = {
+            fonts: document.getElementById('consent-fonts').checked,
+            maps: document.getElementById('consent-maps').checked,
+        };
+        saveConsentPrefs(prefs);
+        applyConsent(prefs);
         banner.remove();
     });
 };
 
-// Inject a "Sütik visszavonása" link into the footer next to the cookie policy link
-// This gives users an easy way to withdraw consent, as required by GDPR Art. 7(3)
+// Inject "Sütik visszavonása" link into footer (GDPR Art. 7(3))
 const initCookieWithdrawal = () => {
     const sutiLink = document.querySelector('a[href*="sutikezelesi-tajekoztato"]');
     if (!sutiLink) return;
@@ -280,6 +359,63 @@ const initNewsCarousel = () => {
         if (currentPosition > maxPosition) {
             currentPosition = maxPosition;
         }
+        updateCarousel();
+    });
+};
+
+// Feedback Carousel - Scroll feedback cards (responsive)
+const initFeedbackCarousel = () => {
+    const carousel = document.querySelector('.feedback-carousel');
+    const grid = document.querySelector('.feedback-carousel .feedback-grid');
+    const prevBtn = document.querySelector('.feedback-carousel-prev');
+    const nextBtn = document.querySelector('.feedback-carousel-next');
+
+    if (!carousel || !grid) return;
+
+    const cards = document.querySelectorAll('.feedback-carousel .feedback-card');
+    let currentPosition = 0;
+    const totalItems = cards.length;
+
+    const getItemsPerView = () => {
+        if (window.innerWidth <= 600) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+    };
+
+    const updateCarousel = () => {
+        const itemsPerView = getItemsPerView();
+        const gap = itemsPerView === 1 ? 0 : 40;
+        const cardWidth = itemsPerView === 1
+            ? carousel.clientWidth
+            : (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
+        const translateValue = -currentPosition * (cardWidth + gap);
+        grid.style.transform = `translateX(${translateValue}px)`;
+    };
+
+    const next = () => {
+        const itemsPerView = getItemsPerView();
+        const maxPosition = totalItems - itemsPerView;
+        if (currentPosition < maxPosition) { currentPosition++; updateCarousel(); }
+    };
+
+    const prev = () => {
+        if (currentPosition > 0) { currentPosition--; updateCarousel(); }
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
+
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        const itemsPerView = getItemsPerView();
+        const maxPosition = totalItems - itemsPerView;
+        if (currentPosition > maxPosition) currentPosition = Math.max(0, maxPosition);
         updateCarousel();
     });
 };
@@ -532,6 +668,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize news carousel
     initNewsCarousel();
+
+    // Initialize feedback carousel
+    initFeedbackCarousel();
 
     // Initialize office gallery carousel
     initOfficeCarousel();

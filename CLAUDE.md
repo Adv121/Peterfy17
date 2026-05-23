@@ -103,7 +103,7 @@ Website/
 | Wagensommer Tímea | Nővér | `photos/colleagues/wagensommer_timea.jpg` | `doctors/wagensommer-timea.html` |
 
 ### Schedules
-- **Dr. Ladányi Ágnes**: Kedd 15:00–19:00, Szerda 15:00–19:00
+- **Dr. Ladányi Ágnes**: Kedd 16:00–19:00, Szerda 16:00–19:00
 - **Dr. Széver Krisztina**: Csütörtök 14:00–19:00
 - **Dr. Székely Katalin**: Egyéni megbeszélés alapján
 - **Dr. Nagy Mária Magdolna**: Szerda 17:00–20:00
