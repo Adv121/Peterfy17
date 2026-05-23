@@ -26,10 +26,12 @@
         "@context": "https://schema.org",
         "@type": "MedicalBusiness",
         "name": "Péterfy17 Magánrendelő",
-        "image": "photos/hero/consultation.jpg",
-        "logo": "photos/logo.png",
+        "description": "Magánrendelő Budapest belvárosában belgyógyászat, diabetológia, nefrológia, bőrgyógyászat, endokrinológia és pszichiátria szakrendelésekkel.",
+        "image": "http://www.peterfy17rendelo.hu/photos/hero/consultation.jpg",
+        "logo": "http://www.peterfy17rendelo.hu/photos/logo.png",
         "telephone": "+36705503989",
         "email": "peterfy17rendelo@gmail.com",
+        "priceRange": "15 000 – 45 000 HUF",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Péterfy Sándor utca 17., IV. emelet, 29. ajtó",
@@ -43,55 +45,59 @@
             "longitude": 19.0725
         },
         "url": "http://www.peterfy17rendelo.hu",
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61566762230496"
+        ],
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Tuesday",
+                "dayOfWeek": "https://schema.org/Tuesday",
                 "opens": "08:00",
                 "closes": "10:00"
             },
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Tuesday",
+                "dayOfWeek": "https://schema.org/Tuesday",
                 "opens": "16:00",
                 "closes": "19:00"
             },
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Wednesday",
+                "dayOfWeek": "https://schema.org/Wednesday",
                 "opens": "16:00",
                 "closes": "20:00"
             },
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Thursday",
+                "dayOfWeek": "https://schema.org/Thursday",
                 "opens": "16:00",
                 "closes": "18:00"
             }
         ],
         "medicalSpecialty": [
             "InternalMedicine",
-            "Diabetologic",
             "Nephrology",
             "Dermatology",
             "Endocrinology",
-            "Psychiatry"
+            "Psychiatry",
+            "Cardiovascular"
         ],
         "availableService": [
-            {"@type": "MedicalProcedure", "name": "Diabetológia"},
-            {"@type": "MedicalProcedure", "name": "24 órás vérnyomás monitor"},
-            {"@type": "MedicalProcedure", "name": "Nefrológia"},
-            {"@type": "MedicalProcedure", "name": "Bőrgyógyászati vizsgálat"},
-            {"@type": "MedicalProcedure", "name": "Pajzsmirigybetegségek"},
-            {"@type": "MedicalProcedure", "name": "PCOS és hormonális zavarok"},
-            {"@type": "MedicalProcedure", "name": "Pszichiátriai konzultáció"},
-            {"@type": "MedicalProcedure", "name": "Pszichoterápia és addiktológia"}
+            {"@type": "Service", "name": "Belgyógyászat"},
+            {"@type": "Service", "name": "Diabetológia"},
+            {"@type": "Service", "name": "24 órás vérnyomás monitor"},
+            {"@type": "Service", "name": "Nefrológia"},
+            {"@type": "Service", "name": "Bőrgyógyászati vizsgálat"},
+            {"@type": "Service", "name": "Pajzsmirigybetegségek"},
+            {"@type": "Service", "name": "PCOS és hormonális zavarok"},
+            {"@type": "Service", "name": "Pszichiátriai konzultáció"},
+            {"@type": "Service", "name": "Pszichoterápia és addiktológia"}
         ],
         "employee": [
             {
                 "@type": "Physician",
                 "name": "Dr. Ladányi Ágnes",
-                "medicalSpecialty": ["InternalMedicine", "Diabetologic", "Nephrology", "Cardiovascular"],
+                "medicalSpecialty": ["InternalMedicine", "Nephrology", "Cardiovascular"],
                 "jobTitle": "Belgyógyász, diabetológus, nefrológus, hipertonológus"
             },
             {
