@@ -1489,14 +1489,6 @@ footer {
         overflow: hidden;
     }
 
-    /* Vertical padding so top/bottom card shadows aren't clipped */
-    .colleagues-carousel,
-    .news-carousel,
-    .feedback-carousel,
-    .office-carousel {
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
 
     .colleagues-carousel-container button,
     .office-carousel-container button {
@@ -1542,10 +1534,10 @@ footer {
     }
 
     .colleague-card {
-        flex: 0 0 100%;
+        flex: 0 0 calc(100% - 30px);
         flex-shrink: 0;
-        width: 100%;
-        margin: 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
         box-sizing: border-box;
     }
 
@@ -1564,10 +1556,10 @@ footer {
     }
 
     .news-carousel .news-card {
-        flex: 0 0 100%;
+        flex: 0 0 calc(100% - 30px);
         flex-shrink: 0;
-        width: 100%;
-        margin: 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
         box-sizing: border-box;
     }
 
@@ -1581,10 +1573,10 @@ footer {
     }
 
     .feedback-carousel .feedback-card {
-        flex: 0 0 100%;
+        flex: 0 0 calc(100% - 30px);
         flex-shrink: 0;
-        width: 100%;
-        margin: 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
         box-sizing: border-box;
     }
 
@@ -1598,10 +1590,10 @@ footer {
     }
 
     .office-carousel .gallery-item {
-        flex: 0 0 100%;
+        flex: 0 0 calc(100% - 30px);
         flex-shrink: 0;
-        width: 100%;
-        margin: 0;
+        width: calc(100% - 30px);
+        margin: 0 15px;
         box-sizing: border-box;
     }
 
