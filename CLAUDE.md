@@ -25,19 +25,16 @@ Website/
 │       ├── ladanyi_agnes.jpg
 │       ├── kormondi_csilla.jpg
 │       ├── szever_krisztina.jpg
-│       ├── szekely_katalin.jpg
-│       ├── nagy_maria_magdolna.jpg
-│       └── wagensommer_timea.jpg
+│       └── nagy_maria_magdolna.jpg
 ├── data/
 │   └── news.json                           # News items (loaded dynamically; JS falls back to embedded data)
 ├── doctors/
 │   ├── dr-ladanyi-agnes.html
 │   ├── kormendi-csilla.html
 │   ├── dr-szever-krisztina.html
-│   ├── dr-szekely-katalin.html
-│   ├── dr-nagy-maria-magdolna.html
-│   └── wagensommer-timea.html
+│   └── dr-nagy-maria-magdolna.html
 ├── news/
+│   ├── tulsuly-kezeles.html
 │   ├── laboratorium-szolgaltatasok.html
 │   ├── 24-oras-vernyomas-monitor.html
 │   ├── folyamatos-glukoz-kontroll.html
@@ -98,9 +95,7 @@ Website/
 | Dr. Ladányi Ágnes | Belgyógyász, diabetológus, nefrológus, hipertonológus | `photos/colleagues/ladanyi_agnes.jpg` | `doctors/dr-ladanyi-agnes.html` |
 | Körmöndi Csilla | Nővér | `photos/colleagues/kormondi_csilla.jpg` | `doctors/kormendi-csilla.html` |
 | Dr. Széver Krisztina | Bőrgyógyász, venerológus, kozmetológus | `photos/colleagues/szever_krisztina.jpg` | `doctors/dr-szever-krisztina.html` |
-| Dr. Székely Katalin | Belgyógyász, endokrinológus főorvos | `photos/colleagues/szekely_katalin.jpg` | `doctors/dr-szekely-katalin.html` |
 | Dr. Nagy Mária Magdolna | Pszichiáter, pszichoterapeuta, addiktológus | `photos/colleagues/nagy_maria_magdolna.jpg` | `doctors/dr-nagy-maria-magdolna.html` |
-| Wagensommer Tímea | Nővér | `photos/colleagues/wagensommer_timea.jpg` | `doctors/wagensommer-timea.html` |
 
 ### Schedules
 - **Dr. Ladányi Ágnes**: Kedd 16:00–19:00, Szerda 16:00–19:00

@@ -515,22 +515,24 @@ const initMobileMenu = () => {
 };
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+const initSmoothScroll = () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-});
+};
 
 // Active navigation highlighting on scroll
 window.addEventListener('scroll', () => {
@@ -691,6 +693,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Add withdrawal link to footer on every page
     initCookieWithdrawal();
+
+    // Smooth scroll for all anchor links (including dynamically injected ones)
+    initSmoothScroll();
 
     // Map placeholder: clicking the button grants consent and loads the map
     document.getElementById('map-load-btn')?.addEventListener('click', () => {
