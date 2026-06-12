@@ -575,6 +575,11 @@ const observer = new IntersectionObserver((entries) => {
 const newsData = {
     "news": [
         {
+            "title": "Túlsúly és elhízás korszerű kezelése – életmódtanácsadás és GLP-1 terápia",
+            "summary": "Rendelőnkben elérhető a túlsúly és elhízás komplex, orvosi kezelése. Dr. Ladányi Ágnes belgyógyász egyénre szabott életmódprogrammal és korszerű GLP-1 alapú gyógyszeres terápiával segít a tartós testsúlycsökkentésben.",
+            "link": "news/tulsuly-kezeles.html"
+        },
+        {
             "title": "Laboratóriumi szolgáltatási csomagok elérhetőek",
             "summary": "2025. július 22.-től elérhetőek rendelőnkben az új laboratóriumi szolgáltatási csomagok: ANAEMIA, DIABETES KISRUTIN, DIABETES RUTIN, VESERUTIN és további speciális laborvizsgálatok. Mintavétel keddenként 8-10 óra között, előzetes bejelentkezéssel.",
             "link": "news/laboratorium-szolgaltatasok.html"
@@ -644,12 +649,15 @@ const loadNews = async () => {
 const shuffleColleagues = () => {
     const grid = document.querySelector('.colleagues-grid');
     if (!grid) return;
-    const cards = Array.from(grid.children);
+    const all = Array.from(grid.children);
+    const pinned = all.filter(c => c.querySelector('h3')?.textContent.includes('Körmöndi'));
+    const cards = all.filter(c => !c.querySelector('h3')?.textContent.includes('Körmöndi'));
     for (let i = cards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         grid.appendChild(cards[j]);
         cards.splice(j, 1);
     }
+    pinned.forEach(c => grid.appendChild(c));
 };
 
 // Observe all cards
