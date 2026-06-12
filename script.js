@@ -290,7 +290,7 @@ const initColleaguesCarousel = () => {
         const itemsPerView = getItemsPerView();
         const maxPosition = totalItems - itemsPerView;
         if (currentPosition > maxPosition) {
-            currentPosition = maxPosition;
+            currentPosition = Math.max(0, maxPosition);
         }
         updateCarousel();
     });
@@ -357,7 +357,7 @@ const initNewsCarousel = () => {
         const itemsPerView = getItemsPerView();
         const maxPosition = totalItems - itemsPerView;
         if (currentPosition > maxPosition) {
-            currentPosition = maxPosition;
+            currentPosition = Math.max(0, maxPosition);
         }
         updateCarousel();
     });
@@ -481,7 +481,7 @@ const initOfficeCarousel = () => {
         const itemsPerView = getItemsPerView();
         const maxPosition = totalItems - itemsPerView;
         if (currentPosition > maxPosition) {
-            currentPosition = maxPosition;
+            currentPosition = Math.max(0, maxPosition);
         }
         updateCarousel();
     });

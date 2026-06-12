@@ -1293,7 +1293,7 @@ footer {
 
     nav {
         position: fixed;
-        top: 100px;
+        top: 83px;
         left: 0;
         right: 0;
         background: #f8f9fa;
@@ -1474,6 +1474,10 @@ footer {
 }
 
 @media (max-width: 600px) {
+    nav {
+        top: 73px;
+    }
+
     /* Overlay carousel arrows on mobile so cards use full width */
     .colleagues-carousel-container,
     .news-carousel-container,

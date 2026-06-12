@@ -104,8 +104,7 @@ Website/
 
 ### Schedules
 - **Dr. Ladányi Ágnes**: Kedd 16:00–19:00, Szerda 16:00–19:00
-- **Dr. Széver Krisztina**: Csütörtök 14:00–19:00
-- **Dr. Székely Katalin**: Egyéni megbeszélés alapján
+- **Dr. Széver Krisztina**: Csütörtök 16:00–18:00
 - **Dr. Nagy Mária Magdolna**: Szerda 17:00–20:00
 
 ---
