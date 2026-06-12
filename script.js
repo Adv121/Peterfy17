@@ -251,9 +251,7 @@ const initColleaguesCarousel = () => {
     const updateCarousel = () => {
         const itemsPerView = getItemsPerView();
         const gap = itemsPerView === 1 ? 0 : 40;
-        const cardWidth = itemsPerView === 1
-            ? carousel.clientWidth
-            : (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
+        const cardWidth = (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
         const translateValue = -currentPosition * (cardWidth + gap);
         grid.style.transform = `translateX(${translateValue}px)`;
     };
@@ -318,9 +316,7 @@ const initNewsCarousel = () => {
     const updateCarousel = () => {
         const itemsPerView = getItemsPerView();
         const gap = itemsPerView === 1 ? 0 : 40;
-        const cardWidth = itemsPerView === 1
-            ? carousel.clientWidth
-            : (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
+        const cardWidth = (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
         const translateValue = -currentPosition * (cardWidth + gap);
         grid.style.transform = `translateX(${translateValue}px)`;
     };
@@ -385,9 +381,7 @@ const initFeedbackCarousel = () => {
     const updateCarousel = () => {
         const itemsPerView = getItemsPerView();
         const gap = itemsPerView === 1 ? 0 : 40;
-        const cardWidth = itemsPerView === 1
-            ? carousel.clientWidth
-            : (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
+        const cardWidth = (grid.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
         const translateValue = -currentPosition * (cardWidth + gap);
         grid.style.transform = `translateX(${translateValue}px)`;
     };
@@ -442,9 +436,7 @@ const initOfficeCarousel = () => {
     const updateCarousel = () => {
         const itemsPerView = getItemsPerView();
         const gap = itemsPerView === 1 ? 0 : 40;
-        const cardWidth = itemsPerView === 1
-            ? carousel.clientWidth
-            : (gallery.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
+        const cardWidth = (gallery.offsetWidth - gap * (itemsPerView - 1)) / itemsPerView;
         const translateValue = -currentPosition * (cardWidth + gap);
         gallery.style.transform = `translateX(${translateValue}px)`;
     };
