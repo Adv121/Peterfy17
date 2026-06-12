@@ -1489,13 +1489,13 @@ footer {
         overflow: hidden;
     }
 
-    /* Internal padding so card shadows aren't clipped at the edges */
+    /* Vertical padding so top/bottom card shadows aren't clipped */
     .colleagues-carousel,
     .news-carousel,
     .feedback-carousel,
     .office-carousel {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 
     .colleagues-carousel-container button,
